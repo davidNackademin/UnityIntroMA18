@@ -15,12 +15,7 @@ public class SquareController : MonoBehaviour
     {
         Vector3 centerPosition = new Vector3(0, 0, 0);
 
-        // Transform squareTransform = GetComponent<Transform>();
-        //squareTransform.position = centerPosition;
-
         gameObject.transform.position = centerPosition;
-
-       
     }
 
     private void Update()
@@ -55,7 +50,5 @@ public class SquareController : MonoBehaviour
 
         int random = Random.Range(0, colors.Count);
         spriteRenderer.color = colors[random];
-
     }
-
 }
