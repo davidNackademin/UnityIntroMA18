@@ -7,6 +7,7 @@ public class SquareController : MonoBehaviour
 
     public float speed = 0.1f;
     float direction = 1f;
+    public List<Color> colors;
 
 
     // Start is called before the first frame update
@@ -18,6 +19,8 @@ public class SquareController : MonoBehaviour
         //squareTransform.position = centerPosition;
 
         gameObject.transform.position = centerPosition;
+
+       
     }
 
     private void Update()
@@ -27,14 +30,13 @@ public class SquareController : MonoBehaviour
         if ( gameObject.transform.position.x > 5 || gameObject.transform.position.x < -5)
         {
             ChangeDirection();
+            ChangeColor();
         }
 
     }
 
     private void ChangeDirection()
     {
-        // Debug.Log("Byt riktning");
-
         direction *= -1;
     }
 
@@ -45,6 +47,15 @@ public class SquareController : MonoBehaviour
         position.x += direction * speed;
 
         gameObject.transform.position = position;
+    }
+
+    private void ChangeColor()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+
+        int random = Random.Range(0, colors.Count);
+        spriteRenderer.color = colors[random];
+
     }
 
 }
